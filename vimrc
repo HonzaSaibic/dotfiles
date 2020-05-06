@@ -108,9 +108,9 @@ set completeopt-=menu
 set completeopt+=menuone   " Show the completions UI even with only 1 item
 "set completeopt-=longest   " Don't insert the longest common text
 set completeopt+=preview   " Hide the documentation preview window
+set completeopt+=popup      " Show preview window next to complete popup
 "set completeopt+=noinsert  " Don't insert text automatically
 set completeopt-=noselect  " Highlight the first completion automatically
-set completeopt+=popup
 
 "Current line number is colored
 highlight CursorLineNR cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
