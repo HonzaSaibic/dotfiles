@@ -57,7 +57,7 @@ syntax enable                       " set syntax highlighting
 set nocompatible                    " Use Vi Improved
 set ttyfast                         " better performance for Xterm
 set showcmd                         " show commandline in the bottom
-set autoindent				        " automaticly indent new line as previous one
+set autoindent                      " automaticly indent new line as previous one
 set clipboard=unnamed               " let registers point to system clipboard
 set nu rnu                          " set hybrid numbers
 set lazyredraw                      " don't update the display while executing macros
@@ -92,9 +92,9 @@ set smartcase                       " Turn on case when upper is in search
 set history=1000                    " Command history size
 
 "Tab settings
-set expandtab				        " use spaces intead of tab char
-set tabstop=4			            " use 4 spaces for tab
-set shiftwidth=4			        " use 4 spaces for line shifting
+set expandtab                       " use spaces intead of tab char
+set tabstop=4                       " use 4 spaces for tab
+set shiftwidth=4                    " use 4 spaces for line shifting
 
 "Scrolling settings
 set scrolloff=1                     " Always keep one line below/above the cursor
