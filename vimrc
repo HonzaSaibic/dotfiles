@@ -224,7 +224,7 @@ au BufNewFile,BufRead *.md set textwidth=80
 let g:jedi#completions_enabled = 1
 let g:jedi#show_call_signatures = "2"
 
-function! UpardCompleteByTab()
+function! UpwardCompleteByTab()
     if pumvisible()
         return "\<C-p>"
     else
@@ -241,7 +241,7 @@ function! DownwardCompleteByTab()
 endfunction
 
 imap <C-c> <C-x><C-o>
-inoremap <silent><S-Tab> <c-r>=UpardCompleteByTab()<CR>
+inoremap <silent><S-Tab> <c-r>=UpwardCompleteByTab()<CR>
 inoremap <silent><Tab> <c-r>=DownwardCompleteByTab()<CR>
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
