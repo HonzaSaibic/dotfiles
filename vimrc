@@ -53,7 +53,7 @@ filetype plugin indent on
 
             "GENERAL SETTINGS
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-syntax enable				        " set syntax highlighting
+syntax enable                       " set syntax highlighting
 set nocompatible                    " Use Vi Improved
 set ttyfast                         " better performance for Xterm
 set showcmd                         " show commandline in the bottom
@@ -105,12 +105,12 @@ colorscheme badwolf
 
 "Completeopt
 set completeopt-=menu
-set completeopt+=menuone   " Show the completions UI even with only 1 item
-"set completeopt-=longest   " Don't insert the longest common text
-set completeopt+=preview   " Hide the documentation preview window
-set completeopt+=popup      " Show preview window next to complete popup
-"set completeopt+=noinsert  " Don't insert text automatically
-set completeopt-=noselect  " Highlight the first completion automatically
+set completeopt+=menuone            " Show the completions UI even with only 1 item
+"set completeopt-=longest           " Don't insert the longest common text
+set completeopt+=preview            " Hide the documentation preview window
+set completeopt+=popup              " Show preview window next to complete popup
+"set completeopt+=noinsert          " Don't insert text automatically
+set completeopt-=noselect           " Highlight the first completion automatically
 
 "Current line number is colored
 highlight CursorLineNR cterm=NONE ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
@@ -161,6 +161,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+map <up> :sb
+map <down> :bel sb
+map <left> :vert sb
+map <right> :vert bel sb
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -219,12 +223,26 @@ au BufNewFile,BufRead *.md set textwidth=80
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 let g:jedi#completions_enabled = 1
 let g:jedi#show_call_signatures = "2"
-"MAP tab to autocomplete stuff
-inoremap <silent><expr><C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <silent><expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+function! UpardCompleteByTab()
+    if pumvisible()
+        return "\<C-p>"
+    else
+        return "\<Tab>"
+    endif
+endfunction
+
+function! DownwardCompleteByTab()
+    if pumvisible()
+        return "\<C-n>"
+    else
+        return "\<Tab>"
+    endif
+endfunction
+
 imap <C-c> <C-x><C-o>
+inoremap <silent><S-Tab> <c-r>=UpardCompleteByTab()<CR>
+inoremap <silent><Tab> <c-r>=DownwardCompleteByTab()<CR>
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -338,8 +356,8 @@ let g:autoflake_remove_all_unused_imports=1
             "ALE SETTINGS
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 let g:ale_enabled = 1
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '?'
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = 'W'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
