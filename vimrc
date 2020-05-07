@@ -16,7 +16,7 @@
 set nocompatible                                                                               "
 filetype off                                                                                   "
 set rtp+=~/.vim/bundle/Vundle.vim                                                              "
-call vundle#begin() 		                    " :PluginInstall to install plugins from Vundle
+call vundle#begin()                             " :PluginInstall to install plugins from Vundle
                                                 " :PluginClean to clean unwanted plugins
 Plugin 'gmarik/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
@@ -32,10 +32,11 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'hdima/python-syntax'
-Plugin 'fisadev/vim-isort'                       " pip install isort
+Plugin 'fisadev/vim-isort'                      " pip install isort
 Plugin 'tpope/vim-commentary'
 Plugin 'tell-k/vim-autoflake'
-Plugin 'editorconfig/editorconfig-vim'           " https://editorconfig.org/ doc.
+Plugin 'editorconfig/editorconfig-vim'          " https://editorconfig.org/ doc.
+Plugin 'mbbill/undotree'
 
 Plugin 'davidhalter/jedi-vim'
 
@@ -107,7 +108,7 @@ colorscheme badwolf
 set completeopt-=menu
 set completeopt+=menuone            " Show the completions UI even with only 1 item
 "set completeopt-=longest           " Don't insert the longest common text
-set completeopt+=preview            " Hide the documentation preview window
+set completeopt+=preview            " Show the documentation preview window
 set completeopt+=popup              " Show preview window next to complete popup
 "set completeopt+=noinsert          " Don't insert text automatically
 set completeopt-=noselect           " Highlight the first completion automatically
@@ -147,6 +148,7 @@ nnoremap <leader>l :ls<Return>
 nnoremap <leader>j :bnext<Return>
 nnoremap <leader>k :bprevious<Return>
 nnoremap <leader>ew :EraseBadWhitespace<Return>
+nnoremap <leader>u :UndotreeToggle<Return>
 "FZF search
 nnoremap <leader>f :Files<Return>
 nnoremap <leader>c :Commits<Return>
@@ -278,6 +280,7 @@ let g:lightline = {
       \ },
       \ }
 "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 
 
